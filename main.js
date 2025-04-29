@@ -180,7 +180,7 @@ async function claimOnchain(privateKey, token, agent) {
     "headers": {
       "accept": "application/json, text/plain, */*",
       "accept-language": "vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5",
-      "authorization": "Bearer 9dcc1490-95e8-4ae3-824a-8b22e2d7a63e",
+      "authorization": `Bearer ${token.trim()}`,
       "cf-turnstile-token": turnstile,
       "sec-ch-ua": "\"Google Chrome\";v=\"135\", \"Not-A.Brand\";v=\"8\", \"Chromium\";v=\"135\"",
       "sec-ch-ua-mobile": "?0",
@@ -194,6 +194,7 @@ async function claimOnchain(privateKey, token, agent) {
     "body": null,
     "method": "GET"
   });
+  
 
   const provider = new ethers.providers.JsonRpcProvider(
     "https://rpc-mainnet.taker.xyz",
